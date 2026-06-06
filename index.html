@@ -3,9 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>网页</title>
+    <title>角色展示</title>
+    <style>
+        :root {
+            --background: #0f172a;
+            --card: rgba(15, 23, 42, 0.95);
+            --text: #e2e8f0;
+            --accent: #38bdf8;
+            --muted: #94a3b8;
+            --border: rgba(148, 163, 184, 0.25);
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.2), transparent 28%),
+                        linear-gradient(180deg, #0b1221 0%, #090f1d 100%);
+        }
+        .page {
+            min-height: 100vh;
+            padding: 32px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: clamp(2.2rem, 4vw, 3.6rem);
+        }
+        header p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.5);
+        }
+        .card-header {
+            position: relative;
+            min-height: 220px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(59, 130, 246, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #1e293b;
+            border: 4px solid rgba(56, 189, 248, 0.9);
+            display: grid;
+            place-items: center;
+            font-size: 1.4rem;
+            letter-spacing: 0.08em;
+            color: var(--text);
+        }
+        .card-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .card-title {
+            margin: 0;
+            font-size: 1.4rem;
+            letter-spacing: 0.03em;
+        }
+        .subtitle {
+            margin: 0;
+            color: var(--accent);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+        .description {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.75;
+            font-size: 0.95rem;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+        .stat {
+            padding: 14px;
+            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.72);
+            text-align: center;
+        }
+        .stat strong {
+            display: block;
+            font-size: 1.2rem;
+        }
+        .stat span {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+        footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>欢迎</h1>
+    <div class="page">
+        <header>
+            <h1>角色展示</h1>
+            <p>探索三个独特人物的背景、能力与属性。每个角色都有鲜明的故事风格与战斗定位。</p>
+        </header>
+        <section class="cards">
+            <article class="card">
+                <div class="card-header">
+                    <div class="avatar">艾</div>
+                </div>
+                <div class="card-body">
+                    <p class="subtitle">风之游侠</p>
+                    <h2 class="card-title">艾琳·风语</h2>
+                    <p class="description">擅长远程战斗与自然魔法，敏捷灵动，能在战场上快速移动并打击敌人弱点。</p>
+                    <div class="stats">
+                        <div class="stat"><strong>92</strong><span>敏捷</span></div>
+                        <div class="stat"><strong>78</strong><span>法力</span></div>
+                        <div class="stat"><strong>65</strong><span>防御</span></div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">远程</span>
+                        <span class="tag">支援</span>
+                        <span class="tag">隐匿</span>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-header">
+                    <div class="avatar">雷</div>
+                </div>
+                <div class="card-body">
+                    <p class="subtitle">雷霆战士</p>
+                    <h2 class="card-title">雷瑟·铁拳</h2>
+                    <p class="description">以强力格斗与雷电之力压制敌人，是前线冲锋的先锋与团队的盾牌。</p>
+                    <div class="stats">
+                        <div class="stat"><strong>88</strong><span>力量</span></div>
+                        <div class="stat"><strong>70</strong><span>耐力</span></div>
+                        <div class="stat"><strong>55</strong><span>速度</span></div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">近战</span>
+                        <span class="tag">坦克</span>
+                        <span class="tag">控场</span>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-header">
+                    <div class="avatar">光</div>
+                </div>
+                <div class="card-body">
+                    <p class="subtitle">光明祭司</p>
+                    <h2 class="card-title">希拉·晨曦</h2>
+                    <p class="description">精通治愈与光系魔法，能为队友恢复生命并消除黑暗中的威胁。</p>
+                    <div class="stats">
+                        <div class="stat"><strong>80</strong><span>智力</span></div>
+                        <div class="stat"><strong>85</strong><span>精神</span></div>
+                        <div class="stat"><strong>60</strong><span>灵巧</span></div>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">治疗</span>
+                        <span class="tag">支援</span>
+                        <span class="tag">光系</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <footer>角色展示页面由静态 HTML 与 CSS 构建，可直接打开并查看。</footer>
+    </div>
 </body>
 </html>
